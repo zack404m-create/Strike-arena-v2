@@ -8,9 +8,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: unzip -q "*.zip"
-      - name: Corrigir import
+      - name: Corrigir codigo
         run: |
-          sed -i 's/^import com.badlogic.gdx.graphics.\*;/&\nimport com.badlogic.gdx.graphics.g2d.*;/' StrikeArenaJava/core/src/main/java/com/strikearena/StrikeArenaGame.java
+          F=StrikeArenaJava/core/src/main/java/com/strikearena/StrikeArenaGame.java
+          sed -i 's/^import com.badlogic.gdx.graphics.\*;/&\nimport com.badlogic.gdx.graphics.g2d.*;/' $F
+          sed -i 's/createCapsule(.64f, 1.1f, 8,/createCapsule(.32f, 1.1f, 8,/' $F
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
