@@ -8,6 +8,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: unzip -q "*.zip"
+      - name: Corrigir import
+        run: |
+          sed -i 's/^import com.badlogic.gdx.graphics.\*;/&\nimport com.badlogic.gdx.graphics.g2d.*;/' StrikeArenaJava/core/src/main/java/com/strikearena/StrikeArenaGame.java
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
