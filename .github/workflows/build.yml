@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: unzip -q "*.zip"
+      - run: unzip -oq "*.zip"
       - name: Corrigir codigo
         run: |
           F=StrikeArenaJava/core/src/main/java/com/strikearena/StrikeArenaGame.java
